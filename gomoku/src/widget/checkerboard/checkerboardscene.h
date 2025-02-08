@@ -83,7 +83,7 @@ private:
     QSound *playChessSound = nullptr;
 #endif
     QVector<QVector<ChessItem *>> chessItemList{}; //棋子数组
-    bool chessHasPaint[13][13] = {{false}}; //棋子坐标数组,保存每个位置是否绘制棋子
+    bool chessHasPaint[line_row][line_col] = {{false}}; //棋子坐标数组,保存每个位置是否绘制棋子
     CheckerboardItem *cbitem = nullptr; //棋盘item
     BTStartPause *buttonStartPause = nullptr; //开始、暂停按钮
     BTReplay *buttonReplay = nullptr; //重玩按钮
@@ -107,7 +107,6 @@ private:
     //以下位置参数,根据UI图得来
     const qreal lefttopChessPosWidth = 0.02; //左上角第一个棋子位置占整个scene宽度比例
     const qreal lefttopChessPosHeight = 0.007; //左上角第一个棋子位置占整个scene高度比例
-    const int chessOffset = 83; //棋子位置偏移量
 };
 
 #endif // CHECKERBOARDSCENE_H

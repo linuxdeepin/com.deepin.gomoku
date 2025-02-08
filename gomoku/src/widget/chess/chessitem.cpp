@@ -110,9 +110,8 @@ void ChessItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
             painter->setBrush(backColor);
 
             //绘制hover外层的阴影效果
-            //10为圆点所在的rect左上角坐标,24为圆点半径
-            //此坐标根据棋子要显示的位置得来
-            painter->drawEllipse(QRect(10, 10, 24, 24));
+            int outerR = 12;
+            painter->drawEllipse(QRect(-outerR, -outerR, outerR*2, outerR*2));
             painter->restore();
 
             //绘制白点或黑点
@@ -125,10 +124,10 @@ void ChessItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
                 chessColor.setAlphaF(0.7);
             }
             painter->setBrush(chessColor);
+
             //绘制hover状态
-            //17为圆点所在的rect左上角坐标,10为圆点半径
-            //此坐标根据棋子要显示的位置得来
-            painter->drawEllipse(QRect(17, 17, 10, 10));
+            int innerR = 5;
+            painter->drawEllipse(QRect(-innerR, -innerR, innerR*2, innerR*2));
             painter->restore();
         }
     }
@@ -136,8 +135,8 @@ void ChessItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 
 QRectF ChessItem::boundingRect() const
 {
-    //棋子大小
-    return QRectF(0, 0, chess_size, chess_size);
+    int chessR = 22;
+    return QRectF(-chessR, -chessR, chessR*2, chessR*2);
 }
 
 void ChessItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)

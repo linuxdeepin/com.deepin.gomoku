@@ -40,11 +40,12 @@ enum BTType {
 
 const int widgetWidth = 1024; //界面宽度
 const int widgetHeight = 768; //界面高度
-
-const int backgrond_margin = 40; //棋盘边距
-const int line_row = 13; //棋盘线长
-const int line_col = 13; //棋盘线宽
-const int chess_size = 44; //棋盘格子宽度
+const int checkerboardSize = 694; //棋盘图片宽高（要求为正方形）
+const int line_num = 15; //棋盘规格15X15
+const int line_row = line_num; //棋盘横线数量
+const int line_col = line_num; //棋盘纵线数量
+const int chess_size = 41; //相邻两线之间的距离
+const int backgrond_margin = (checkerboardSize - chess_size * (line_num - 1)) / 2; //棋盘左、上边距
 const int hover_size = 20;
 
 const int chess_none =  0; //没有棋子

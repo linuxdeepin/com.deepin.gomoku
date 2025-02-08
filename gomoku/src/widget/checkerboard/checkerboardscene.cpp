@@ -113,10 +113,9 @@ void CheckerboardScene::initChess()
             connect(buttonStartPause, &BTStartPause::signalGameStop, chess, &ChessItem::slotGameStop);//暂停游戏
             connect(this, &CheckerboardScene::signalGameContinue, chess, &ChessItem::slotGameContinue);//继续游戏
             connect(chess, &ChessItem::signalCPaintItem, this, &CheckerboardScene::slotCPaintItem);//落子坐标,判断输赢
-            //整个棋盘左上角点,加上偏移量到达绘制区域,减去棋格半径是以棋子所在rect左上角为圆点绘制棋子
             //循环添加每个位置棋子
-            chess->setPos(this->width() * lefttopChessPosWidth + chessOffset  - chess_size / 2 + chess_size * j,
-                          this->height() * lefttopChessPosHeight + chessOffset  - chess_size / 2 + chess_size * i);
+            chess->setPos(this->width() * lefttopChessPosWidth + backgrond_margin + chess_size * j,
+                          this->height() * lefttopChessPosHeight + backgrond_margin + chess_size * i);
             pieceItems.append(chess);
             addItem(chess);
             chessHasPaint[i][j] = false;
